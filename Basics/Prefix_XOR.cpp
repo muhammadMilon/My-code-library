@@ -4,13 +4,13 @@ using namespace std;
 
 const int N = 2e5 + 5;
 const int mod = 1e9 + 7;
-ll Prefix_XOR[N], arr[N];
+int Prefix_XOR[N], arr[N];
 
 int32_t main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    ll n, m; 
+    int n, m; 
     cin >> n >> m;
 
     for (int i = 1; i <= n; i++) {
@@ -22,11 +22,12 @@ int32_t main() {
     }
 
     while (m--) {
-        ll a, b; 
+        int a, b; 
         cin >> a >> b;
         cout << (Prefix_XOR[b] ^ Prefix_XOR[a-1]) << '\n';
     }
 
     return 0;
 }
+
 //https://cses.fi/problemset/task/1650
