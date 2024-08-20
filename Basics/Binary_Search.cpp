@@ -1,39 +1,25 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N = 1e5 + 9;
-int a[N], x;
-
-bool search(int l, int r) {
-  if (l > r) return false;
-  int mid = (l + r) / 2;
-  if (a[mid] == x) return true;
-  else if (x < a[mid]) {
-    return search(l, mid - 1);
-  }
-  else {
-    return search(mid + 1, r);
-  }
-}
-
 int32_t main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
-
-  int n, q; cin >> n >> q;
+  int n; cin >> n;
+  int a[n + 1];
   for (int i = 1; i <= n; i++) {
     cin >> a[i];
   }
-
-  while (q--) {
-    cin >> x;
-    bool found = search(1, n);
-    if (found) {
-      cout << "YES\n";
+  int l = 1, r = n, ans = -1;
+  while (l <= r) {
+    int mid = (l + r) / 2;
+    if (a[mid] == 1) {
+      ans = mid;
+      r = mid - 1;
     }
     else {
-      cout << "NO\n";
+      l = mid + 1;
     }
   }
+  cout << ans << '\n';
   return 0;
 }
