@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N = 1e8 + 9;
+const int N = 1e7 + 9;
 bitset<N> f;
 int32_t main() {
   ios_base::sync_with_stdio(0);
